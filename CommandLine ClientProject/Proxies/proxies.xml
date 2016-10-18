@@ -1,0 +1,20 @@
+<ProxyEndpoint name="default">
+  <Flows>
+    <Flow name="default">
+      <Request/>
+      <Response>
+	<!-- Call the JavaScript that invokes both APIs and returns a response -->
+	<Step><Name>MashItUp</Name></Step>
+      </Response>
+    </Flow>
+  </Flows>
+
+  <HTTPProxyConnection>
+    <!-- Add a base path to the proxy to distinguish from others in the environment -->
+    <BasePath>/javascript-mashup-cookbook</BasePath>
+    <VirtualHost>default</VirtualHost>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <!-- No route. The proxy will return the request and not call a backend service. -->
+  </RouteRule>
+</ProxyEndpoint>
